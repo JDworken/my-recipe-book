@@ -1,1 +1,15 @@
-  <page-router-outlet></page-router-outlet>
+
+<RadSideDrawer>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="Navigation Menu"></Label>
+        </StackLayout>
+        <StackLayout class="sideStackLayout">
+            <Label text="Test" class="sideLabel sideLightGrayLabel" [nsRouterLink]="['/test']" (tap)="drawer.closeDrawer()"></Label>
+            <Label text="Home" class="sideLabel sideLightGrayLabel" [nsRouterLink]="['/home']" (tap)="drawer.closeDrawer()"></Label>
+        </StackLayout>
+        <Label text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" (tap)="onCloseDrawerTap()"></Label>
+    </StackLayout>
+    <page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>
+

@@ -1,5 +1,28 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ActionBar [title]="title"></ActionBar>
-<StackLayout  class="p-20">
-    <Label text="Welcome to {{ title }}!" class="h1 text-center" textWrap="true"></Label>
-</StackLayout>
+
+<ScrollView>
+    <ActionBar title="Home" icon="" class="action-bar">
+    </ActionBar>
+    <GridLayout rows="auto, *, auto, auto">
+        <StackLayout row="0" orientation="vertical" padding="10">
+            <StackLayout orientation="horizontal" padding="10">
+                <Label text="saveToGallery"></Label>
+                <Switch [(ngModel)]="saveToGallery"></Switch>
+            </StackLayout>
+            <StackLayout orientation="horizontal" padding="10">
+                <Label text="keepAspectRatio"></Label>
+                <Switch [(ngModel)]="keepAspectRatio"></Switch>
+            </StackLayout>
+            <StackLayout orientation="horizontal" padding="10">
+                <Label text="width: "></Label>
+                <TextField hint="Enter width" keyboardType="number" [(ngModel)]="width" class="input"></TextField>
+                <Label text="height: "></Label>
+                <TextField hint="Enter height" keyboardType="number" [(ngModel)]="height" class="input"></TextField>
+            </StackLayout>
+        </StackLayout>
+        <Image row="1" [src]="cameraImage" stretch="aspectFit" margin="10"></Image>
+        <TextView row="2" [(ngModel)]="labelText" editable="false"></TextView>
+        <Button row="3" text="Take Picture" (tap)="onTakePictureTap()" horizontalAlignment="center"></Button>
+    </GridLayout>
+</ScrollView>
+
