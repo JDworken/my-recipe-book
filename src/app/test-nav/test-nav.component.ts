@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { NavHelperService } from '../shared/nav/nav-helper.service';
+import { DrawerService } from '../shared/drawer/drawer.service';
+
 
 @Component({
   selector: 'app-test-nav',
@@ -8,12 +10,12 @@ import { RouterExtensions } from 'nativescript-angular/router';
 })
 export class TestNavComponent implements OnInit {
 
-  constructor(private routerExtension: RouterExtensions) { }
+  constructor(private navHelperServ: NavHelperService, private drawerServ: DrawerService) { }
 
   ngOnInit() {
   }
 
   onNavBtnTap(){
-    this.routerExtension.backToPreviousPage();
+    this.navHelperServ.back();
   }
 }

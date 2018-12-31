@@ -1,6 +1,9 @@
 import { Component, ViewChild, AfterViewInit, OnInit, ChangeDetectorRef } from '@angular/core';
-import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
-import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+// import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
+// import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+
+// Service Imports
+import { DrawerService } from "./shared/drawer/drawer.service";
 
 @Component({
   selector: 'app-root',
@@ -9,10 +12,8 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 })
 export class AppComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
-  private drawer: RadSideDrawer;
-
-  constructor(private _changeDetectionRef: ChangeDetectorRef){
+  constructor(private _changeDetectionRef: ChangeDetectorRef, 
+    private drawerServ: DrawerService){
   }
 
   ngOnInit(): void {
@@ -20,15 +21,14 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.drawer = this.drawerComponent.sideDrawer;
     this._changeDetectionRef.detectChanges();
   }
   
   public openDrawer() {
-    this.drawer.showDrawer();
+    this.drawerServ.show();
   }
 
   public onCloseDrawerTap() {
-      this.drawer.closeDrawer();
+      this.drawerServ.hide();
   }
 }
