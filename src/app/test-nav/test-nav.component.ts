@@ -15,7 +15,7 @@ export class TestNavComponent implements OnInit {
   ngOnInit() {
   }
 
-  onNavBtnTap(){
+  onNavBtnTap() {
     this.navHelperServ.back();
   }
 }

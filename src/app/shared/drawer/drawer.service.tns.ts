@@ -9,12 +9,12 @@ export class DrawerService {
 
   constructor() { }
 
-  public show(){
+  public show() {
     const sideDrawer = <RadSideDrawer>getRootView();
     sideDrawer.showDrawer();
   }
 
-  public hide(){
+  public hide() {
     const sideDrawer = <RadSideDrawer>getRootView();
     sideDrawer.closeDrawer();
   }

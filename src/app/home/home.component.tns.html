@@ -1,9 +1,19 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-<ScrollView>
-    <ActionBar title="Home" icon="" class="action-bar">
+<!-- <ScrollView> -->
+    <ActionBar title="Recipe List" icon="" class="action-bar">
+        <NavigationButton text="Back" icon="res://baseline_menu_white_24" (tap)="onNavBtnTap()"></NavigationButton>
     </ActionBar>
-    <GridLayout rows="auto, *, auto, auto">
+    <ScrollView>
+        <ListView [items]="source" (loaded)="onLoaded($event)" (itemLoading)="onItemLoading($event)" (itemTap)="onItemTap($event)" class="list-group">
+            <ng-template let-item="item" let-odd="odd" let-even="even">
+                <StackLayout orientation="horizontal">
+                    <Image src="~/assets/pictures/example.jpg" width="70" height="70" stretch="aspectFit"></Image>
+                    
+                    <Label [text]="item.title" class="list-group-item"></Label>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </ScrollView>
+    <!-- <GridLayout rows="auto, *, auto, auto">
         <StackLayout row="0" orientation="vertical" padding="10">
             <StackLayout orientation="horizontal" padding="10">
                 <Label text="saveToGallery"></Label>
@@ -23,6 +33,6 @@
         <Image row="1" [src]="cameraImage" stretch="aspectFit" margin="10"></Image>
         <TextView row="2" [(ngModel)]="labelText" editable="false"></TextView>
         <Button row="3" text="Take Picture" (tap)="onTakePictureTap()" horizontalAlignment="center"></Button>
-    </GridLayout>
-</ScrollView>
+    </GridLayout> -->
+<!-- </ScrollView> -->
 

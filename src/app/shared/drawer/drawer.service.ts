@@ -7,7 +7,7 @@ export class DrawerService {
 
   constructor() { }
 
-  public show(){ }
+  public show() { }
 
-  public hide(){ }
+  public hide() { }
 }
